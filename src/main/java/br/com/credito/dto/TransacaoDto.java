@@ -33,7 +33,8 @@ public record TransacaoDto(
 				transacao.getNumeroCartao(),
 				transacao.getCodSeguranca(),
 				transacao.getValidadeCartao(),
-				transacao.getTotal(),transacao.getStatusCompra());
+				transacao.getTotal(),
+				transacao.getStatusCompra());
 	}
 
 }
