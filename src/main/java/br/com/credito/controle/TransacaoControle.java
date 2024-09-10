@@ -1,7 +1,10 @@
 package br.com.credito.controle;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,5 +28,12 @@ public class TransacaoControle {
 				path("{id}").buildAndExpand(transacao.getId()).toUri();
 		return ResponseEntity.created(uri).body(new TransacaoDto(transacao));
 	}
+	
+	@GetMapping
+	public ResponseEntity<List<TransacaoDto>>listarTodas(){
+		var todas = transacaoServico.listarTodas();
+		return ResponseEntity.ok(todas);
+	}
 
+	
 }
